@@ -10,7 +10,6 @@ let totalPageNo;
 let totalRepo;
 let userName;
 
-
 //For adding the params to the url
 function addUrlParameter(name, value) {
   var searchParams = new URLSearchParams(window.location.search);
@@ -39,7 +38,9 @@ function repoDisplay(repositories) {
                           <circle cx="12" cy="12" r="1"></circle>
                       </svg>
                       <div>${repo.language}</div>
-                    </div>`: ""}
+                    </div>`
+                    : ""
+                }
               <div>
               <div class="material-symbols-outlined">
               star
@@ -82,8 +83,9 @@ async function getRepositories(pageNo, perPageRepo) {
   }
 }
 
-//DOM Content 
+//DOM Content
 document.addEventListener("DOMContentLoaded", async () => {
+  //accessing the username from the url
   const searchParams = new URLSearchParams(window.location.search);
   const username = searchParams.get("user");
 
@@ -95,30 +97,32 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Update profile information
   totalPageNo = userData.public_repos;
   userName = userData.login;
+  if (!userName) {
+    document.querySelector(".main").innerHTML = `<h1 class="error">404 Error this user does not exist</h1>`;
+  }
+  else{
+  //set the basic info of page like total repo pages a/c to maximum display count per page
   totalPage.innerHTML =
     totalPageNo % selected.value == 0
       ? Math.floor(totalPageNo / selected.value)
       : Math.floor(totalPageNo / selected.value) + 1;
-  document.querySelector(
-    ".card-right h3"
-  ).innerHTML = `<a href=${userData.html_url}>${userData.login}</a>`;
-  document.querySelector(
-    ".card-right h2"
-  ).innerHTML = `<a href=${userData.html_url}>${userData.name}</a>`;
-  document.querySelector(".bio").textContent = userData.bio || "";
-  document.querySelector(".avatar").src = userData.avatar_url;
+
+  document.querySelector(".card-right h3").innerHTML = `<a href=${userData.html_url}>${userData.login}</a>`; //sets username
+  document.querySelector(".card-right h2").innerHTML = `<a href=${userData.html_url}>${userData.name}</a>`; //sets name
+  document.querySelector(".bio").textContent = userData.bio || ""; //sets bio
+  document.querySelector(".avatar").src = userData.avatar_url; //sets image of the user
   document.querySelector(".card-right .email").textContent = userData.email
     ? `Email: ${userData.email || ""}`
-    : "";
+    : ""; //sets the email
   document.querySelector(".card-right .location").textContent =
-    userData.location ? `Location: ${userData.location}` : "";
+    userData.location ? `Location: ${userData.location}` : ""; //sets the location
 
   // Fetch user repositories from GitHub API
   const repositories = await getRepositories(
     currPage.innerHTML,
     selected.value
   );
-  repoDisplay(repositories);
+  repoDisplay(repositories);}
 });
 
 //search github profile by username
