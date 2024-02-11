@@ -6,12 +6,19 @@ The project is built using HTML, CSS, JavaScript for the front-end, and the serv
 ## Features
 
 - **Repository Search**: Users can search for repositories using keywords.
+ ![image](https://github.com/himanishu-2512/Github-Profile-Viewer/assets/96021680/67bd1d82-1cf2-4d2e-8b07-2799e70fc935)
 - **User Search**: Users can search for GitHub users by username.
 - **Pagination**: Pagination feature for repositories to handle large sets of data.
 - **Clickable Repository Headings**: Repository headings are clickable and linked to the original repository.
+ ![image](https://github.com/himanishu-2512/Github-Profile-Viewer/assets/96021680/ca23c9f1-c30b-4875-b7ec-9302659c1300)
+
 - **Display of Languages and Description**: Each repository displays the languages used and its description.
+
 - **Total Stars Count**: Total number of stars given to the repository is also mentioned.
 - **404 Page**: If a user does not exist, a 404 page is displayed.
+ ![image](https://github.com/himanishu-2512/Github-Profile-Viewer/assets/96021680/13727512-0609-4a00-8a51-acc5b5d480ae)
+
+
 
 ## Installation
 
