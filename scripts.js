@@ -5,6 +5,7 @@ const next = document.querySelector("#next");
 const selected = document.getElementById("selectedId");
 const repoContainer = document.querySelector(".repo-grid");
 const loader = document.getElementById("loader");
+const mainLoader=document.querySelector(".loader");
 const repoSearch = document.getElementById("repo-search");
 let totalPageNo;
 let totalRepo;
@@ -56,6 +57,7 @@ function repoDisplay(repositories) {
 
 //getRepositories sending requesting to the server
 async function getRepositories(pageNo, perPageRepo) {
+
   loader.style.display = "block";
   if (repoSearch.value != "") {
     const repositories = await fetch(
@@ -93,6 +95,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Update profile information
   totalPageNo = userData.public_repos;
   userName = userData.login;
+  mainLoader.style.display="none"
+
   if (!userName) {
     document.querySelector(".main").innerHTML = `<div class="error"><h1>404 - User Not Found</h1>
     <svg id="error-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
