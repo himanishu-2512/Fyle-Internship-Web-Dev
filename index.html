@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profile</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://github.com/fluidicon.png">
+  </link>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0" />
+
+<body>
+  <header class="header">
+    <div class="header-left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo">
+        <path
+          d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+        </path>
+        <path d="M9 18c-4.51 2-5-2-7-2"></path>
+      </svg>
+      <h1 class="header-title">GitHub Profile</h1>
+    </div>
+    <div class="header-right">
+      <input class="search" placeholder="Search repositories..." id="repo-search" type="search">
+      <input class="search" placeholder="Search users..." id="user-search" type="search">
+    </div>
+  </header>
+  <main class="main">
+    <div class="card">
+      <div class="card-left">
+        <img class="avatar" src="/placeholder-avatar.jpg" alt="User avatar">
+      </div>
+      <div class="card-right">
+        <h2>Jhon Doe</h2>
+        <h3>JohnDoe112</h3>
+        <p class="bio">Software Engineer</p>
+        <p class="email">john.doe@example.com</p>
+        <p class="location"></p>
+      </div>
+    </div>
+    <div class="repo">
+      <div class="card-header">
+        <h3>Repositories</h3>
+      </div>
+      <div class="card-content" id="repo-container">
+        <div id="loader"></div>
+        <div class="repo-grid">
+
+
+        </div>
+        <div class="card-footer">
+          <div class="footer-left">
+            <span>Show:</span>
+            <select class="select" id="selectedId">
+              <option>1</option>
+              <option>5</option>
+              <option selected>10</option>
+              <option>20</option>
+              <option>30</option>
+              <option>40</option>
+              <option>50</option>
+              <option>60</option>
+              <option>70</option>
+              <option>80</option>
+              <option>90</option>
+              <option>100</option>
+            </select>
+          </div>
+          <div class="footer-right">
+            <button class="button" id="prev"> Previous </button>
+            <div>Page <span id="curr-page"> 1</span> of <span id="total-page"> 10 </span></div>
+            <button class="button" id="next"> Next </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <script src="./scripts.js"></script>
+</body>
+
+</html>
