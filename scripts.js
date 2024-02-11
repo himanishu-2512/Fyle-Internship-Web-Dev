@@ -19,7 +19,6 @@ function addUrlParameter(name, value) {
 
 //Dynamically inseting the repositories in the html DOM
 function repoDisplay(repositories) {
-  // console.log(repositories);
   const repoList = repositories
     .map((repo) => {
       return `<div class="repo-card">
@@ -51,7 +50,6 @@ function repoDisplay(repositories) {
        </div>`;
     })
     .join("");
-  // repoContainer.style.display = "grid";
   repoContainer.innerHTML = repoList;
   loader.style.display = "none";
 }
@@ -59,7 +57,6 @@ function repoDisplay(repositories) {
 //getRepositories sending requesting to the server
 async function getRepositories(pageNo, perPageRepo) {
   loader.style.display = "block";
-  // repoContainer.style.display = "none";
   if (repoSearch.value != "") {
     const repositories = await fetch(
       `http://localhost:8000/repos/${userName}/${currPage.innerHTML}/${selected.value}?reponame=${repoSearch.value}`
@@ -69,7 +66,6 @@ async function getRepositories(pageNo, perPageRepo) {
       totalRepo % selected.value == 0
         ? Math.floor(totalRepo / selected.value)
         : Math.floor(totalRepo / selected.value) + 1;
-    // totalPage.innerHTML=Number(repositories.data)
     return repositories.slicedRepoList;
   } else {
     const repositories = await fetch(
