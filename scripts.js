@@ -59,7 +59,7 @@ async function getRepositories(pageNo, perPageRepo) {
   loader.style.display = "block";
   if (repoSearch.value != "") {
     const repositories = await fetch(
-      `http://localhost:8000/repos/${userName}/${currPage.innerHTML}/${selected.value}?reponame=${repoSearch.value}`
+      `https://fyle-internship-web-dev-backend.vercel.app/repos/${userName}/${currPage.innerHTML}/${selected.value}?reponame=${repoSearch.value}`
     ).then((res) => res.json());
     totalRepo = repositories.totalRepo;
     totalPage.innerHTML =
@@ -69,7 +69,7 @@ async function getRepositories(pageNo, perPageRepo) {
     return repositories.slicedRepoList;
   } else {
     const repositories = await fetch(
-      `http://localhost:8000/users/${userName}/repos/${pageNo}/${perPageRepo}`
+      `https://fyle-internship-web-dev-backend.vercel.app/users/${userName}/repos/${pageNo}/${perPageRepo}`
     ).then((res) => res.json());
     totalPage.innerHTML =
       totalPageNo % selected.value == 0
