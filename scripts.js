@@ -94,7 +94,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   totalPageNo = userData.public_repos;
   userName = userData.login;
   if (!userName) {
-    document.querySelector(".main").innerHTML = `<h1 class="error">404 Error this user does not exist</h1>`;
+    document.querySelector(".main").innerHTML = `<div class="error"><h1>404 - User Not Found</h1>
+    <svg id="error-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.514 0-10-4.486-10-10S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm.414-13.414a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 3 0v-5a1.5 1.5 0 0 0-1.5-1.5zm-.5-6.5a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0v-4a1 1 0 0 0-1-1z"/>
+    </svg>
+    </div>`;
   }
   else{
   //set the basic info of page like total repo pages a/c to maximum display count per page

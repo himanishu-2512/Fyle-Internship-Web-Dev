@@ -235,7 +235,12 @@ body {
 
   .error{
     display:flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    color:red;
     margin:auto;
+  }
+  #error-svg {
+    width: 200px; /* Adjust size as needed */
+     /* Change the fill color */
   }
